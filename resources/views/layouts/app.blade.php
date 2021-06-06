@@ -17,6 +17,7 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
@@ -42,5 +43,11 @@
         @stack('modals')
 
         @livewireScripts
+
+        <script>
+            Livewire.on('alert', function(message){
+                swal("Good job!", message, "success");
+            })
+        </script>
     </body>
 </html>

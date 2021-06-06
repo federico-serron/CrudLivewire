@@ -11,6 +11,7 @@ class ShowPosts extends Component
     public $search;
     public $sort = 'id';
     public $direction = 'desc';
+    public $listeners = ['render' => 'render'];
 
     public function render()
     {
@@ -23,6 +24,20 @@ class ShowPosts extends Component
     }
 
     public function order($sort){
-        $this->sort = $sort;
+
+        if ($this->sort == $sort) {
+
+            if ($this->direction == 'desc') {
+                $this->direction = 'asc';
+            } else {
+                $this->direction = 'desc';
+            }
+            
+        } else {
+            $this->sort = $sort;
+            $this->direction = 'asc';    
+        }
+        
+        
     }
 }

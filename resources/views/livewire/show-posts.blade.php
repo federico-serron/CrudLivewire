@@ -5,9 +5,10 @@
         </h2>
     </x-slot>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="mb-3">
-            <x-jet-input class="w-full" placeholder="What are you looking for?" wire:model="search" type="text">
+        <div class="mb-3 flex items-center">
+            <x-jet-input class="flex-1" placeholder="What are you looking for?" wire:model="search" type="text">
             </x-jet-input>
+            @livewire('create-post')
         </div>
         @if ($posts->count())
         <x-table>
@@ -19,6 +20,8 @@
                         </th>
                         <th wire:click="order('title')" scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer">
                             Title
+
+                            <i class="fas fa-sort"></i>
                         </th>
                         <th wire:click="order('content')" scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer">
                             Content
