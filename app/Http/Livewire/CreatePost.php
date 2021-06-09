@@ -13,14 +13,17 @@ class CreatePost extends Component
 
     protected $rules = [
         'title' => 'required|max:10',
-        'content' => 'required|min:50'
+        'content' => 'required|max:255'
     ];
 
+    // REAL TIME VALIDATION
     public function updated($propertyName){
 
         $this->validateOnly($propertyName);
     }
 
+    // VALIDATION BEFORE SAVE AND THEN SAVE
+    // THE VIEW WILL BE RENDER AND use emit() & emitTo() to update the page without reload it.
     public function save(){
 
         $this->validate();

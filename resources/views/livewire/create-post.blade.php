@@ -19,7 +19,7 @@
 
             <div class="mb-4">
                 <x-jet-label value="Post Content" />
-                <textarea class="form-control w-full" rows="6" wire:model="content" ></textarea>
+                <textarea class="form-control w-full" rows="6" wire:model.defer="content" ></textarea>
 
                 <x-jet-input-error for="content" />
             </div>
@@ -31,7 +31,8 @@
                 Discard
             </x-jet-secondary-button>
 
-            <x-jet-danger-button wire:click="save">
+            {{-- THis button has the livewire method loading which shows a disabled class while it loads. --}}
+            <x-jet-danger-button wire:click="save" wire:loading.attr="disabled" wire:target="save" class="disabled:opacity-20">
                 + Create
             </x-jet-danger-button>
         </x-slot>
