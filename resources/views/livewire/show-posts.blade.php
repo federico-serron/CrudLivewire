@@ -48,8 +48,8 @@
                                 <td class="px-6 py-4 text-sm text-gray-500">
                                         {{ $post->content }}
                                 </td>
-                                <td class="px-6 py-4 text-right text-sm font-medium">
-                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                <td class="px-6 py-4 text-sm font-medium">
+                                    @livewire('edit-post', ['post' => $post], key($post->id))
                                 </td>
                             </tr>
 
