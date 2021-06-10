@@ -10,6 +10,16 @@
         </x-slot>
 
         <x-slot name="content">
+
+            <div class="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert" wire:loading wire:target="image">
+                <strong class="font-bold">Image loading</strong>
+                <span class="block sm:inline">Please, wait a moment...</span>
+            </div>
+
+            @if ($image)
+                <img class="mb-4" src="{{ $image->temporaryUrl() }}" alt="">
+            @endif
+
             <div class="mb-4">
                 <x-jet-label value="Post title" />
                 <x-jet-input class="w-full" type="text" wire:model="title" />
@@ -24,6 +34,10 @@
                 <x-jet-input-error for="content" />
             </div>
 
+            <div>
+                <input type="file" wire:model="image">
+                <x-jet-input-error  for="image"/>
+            </div>
         </x-slot>
 
         <x-slot name="footer">
@@ -32,7 +46,7 @@
             </x-jet-secondary-button>
 
             {{-- THis button has the livewire method loading which shows a disabled class while it loads. --}}
-            <x-jet-danger-button wire:click="save" wire:loading.attr="disabled" wire:target="save" class="disabled:opacity-20">
+            <x-jet-danger-button wire:click="save" wire:loading.attr="disabled" wire:target="save, image" class="disabled:opacity-20">
                 + Create
             </x-jet-danger-button>
         </x-slot>
