@@ -15,6 +15,8 @@
 
         @livewireStyles
 
+        @stack('css')
+
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -44,6 +46,8 @@
 
         @livewireScripts
 
+        @stack('js')
+        
         <script>
             Livewire.on('alert', function(message){
                 swal("Good job!", message, "success");
