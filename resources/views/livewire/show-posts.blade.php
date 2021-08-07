@@ -78,7 +78,7 @@
                                     </span>
                                 </td>
                                 <td class="px-6 py-4 text-sm text-gray-500">
-                                        {{ $item->content }}
+                                        {!! $item->content !!}
                                 </td>
                                 <td class="px-6 py-4 text-sm font-medium">
                                     {{-- @livewire('edit-post', ['post' => $post], key($post->id)) --}}
